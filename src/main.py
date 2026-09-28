@@ -1,11 +1,9 @@
 """
 main.py
 
-Main program: shows an interactive text menu and calls the functions
-defined in catalog.py to manage the collectible pieces catalog. Each
-menu option is handled by its own small function, and every call to
-catalog.py is wrapped in a try/except so the user always sees a clear
-message instead of the program crashing.
+Interactive text menu for the collectible pieces catalog. Each option is
+handled by a small function that calls catalog.py and wraps the calls in
+try/except so the user always sees a clear message instead of a crash.
 """
 
 from catalog import (
@@ -105,11 +103,8 @@ def handle_find_piece(catalog):
 def handle_remove_piece(catalog):
     piece_id = input("\nIngresa el id de la pieza a eliminar: ")
     try:
-        removed = remove_piece(catalog, piece_id)
-        if removed:
-            print(f"Pieza con id '{piece_id}' eliminada correctamente.")
-        else:
-            print(f"No se pudo eliminar la pieza con id '{piece_id}'.")
+        remove_piece(catalog, piece_id)
+        print(f"Pieza con id '{piece_id}' eliminada correctamente.")
     except ValueError as error:
         print(f"Error al eliminar la pieza: {error}")
 
